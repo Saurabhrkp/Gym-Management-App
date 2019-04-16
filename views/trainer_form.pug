@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='first_name') First Name:
+      input#first_name.form-control(type='text', placeholder='First name (Christian)' name='first_name' required='true' value=(undefined===trainer ? '' : trainer.first_name) )
+      label(for='family_name') Family Name:
+      input#family_name.form-control(type='text', placeholder='Family name (Surname)' name='family_name' required='true' value=(undefined===trainer ? '' : trainer.family_name))
+    div.form-group
+      label(for='date_of_birth') Date of birth:
+      input#date_of_birth.form-control(type='date', name='date_of_birth' value=(undefined===trainer ? '' : trainer.date_of_birth_yyyy_mm_dd) )
+    div.form-group
+      label(for='m_address') Address:
+      input#m_address.form-control(type='text', name='m_address' value=(undefined===trainer ? '' : trainer.m_address) )
+      label(for='m_number') Phone Number:
+      input#m_number.form-control(type='number', name='m_number' value=(undefined===trainer ? '' : trainer.m_number) )
+      label(for='date_of_reg') Date of Register:
+      input#date_of_reg.form-control(type='date', name='date_of_reg' value=(undefined===trainer ? '' : trainer.date_of_reg) )
+      label(for='salary') Salary:
+      input#salary.form-control(type='number', name='salary' value=(undefined===trainer ? '' : trainer.salary) )
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

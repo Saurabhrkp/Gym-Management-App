@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='first_name') First Name:
+      input#first_name.form-control(type='text', placeholder='First name (Shubh Name)' name='first_name' required='true' value=(undefined===member ? '' : member.first_name) )
+      label(for='family_name') Family Name:
+      input#family_name.form-control(type='text', placeholder='Family name (Surname)' name='family_name' required='true' value=(undefined===member ? '' : member.family_name))
+    div.form-group
+      label(for='date_of_birth') Date of birth:
+      input#date_of_birth.form-control(type='date', name='date_of_birth' value=(undefined===member ? '' : member.date_of_birth) )
+      label(for='m_address') Adress:
+      input#m_address.form-control(type='text', placeholder='Address' name='m_address' required='true' value=(undefined===member ? '' : member.m_address) )
+      label(for='m_number') Phone Number:
+      input#m_number.form-control(type='number', placeholder='Mobile Number' name='m_number' required='true' value=(undefined===member ? '' : member.m_number) )
+    div.form-group
+      label(for='date_of_reg') Date of Registration:
+      input#date_of_reg.form-control(type='date', name='date_of_reg' value=(undefined===member ? '' : member.date_of_reg) )
+      label(for='plan_end_on') Plan end on:
+      input#plan_end_on.form-control(type='date', name='plan_end_on' value=(undefined===member ? '' : member.plan_end_on) )
+    div.form-group
+      label(for='trainer') Trainer:
+      select#trainer.form-control(type='select', placeholder='Select trainer' name='trainer' )
+        for trainer in trainers
+          option(value=trainer._id) #{trainer.name}
+      label(for='plan') Plan:
+      select#plan.form-control(type='select', placeholder='Select plan' name='plan' )
+        for plan in plans
+          option(value=plan._id) #{plan.planName}
+      label(for='type') Type:
+      select#type.form-control(type='select', placeholder='Select type' name='type' )
+        for type in types
+          option(value=type._id) #{type.name}
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

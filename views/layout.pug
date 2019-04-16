@@ -1,0 +1,58 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="stylesheet", href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet' type='text/css' href='/stylesheets/iconkit.css')
+  body
+    div(class='container-fluid')
+      div(class='row')
+        div(class='col-sm-3')
+          block sidebar
+            ul(class='sidebar-nav')
+              li 
+                i.ik.ik-home
+                a(href='/catalog')   Home
+              li 
+                i.ik.ik-users
+                a(href='/catalog/members')   All Member
+              li 
+                i.ik.ik-anchor
+                a(href='/catalog/trainers')   All Tranier
+              li 
+                i.ik.ik-clipboard
+                a(href='/catalog/plans')   All Plan
+              //- li 
+              //-   i.ik.ik-check-square
+              //-   a(href='/catalog/types')   All Type
+              //- li 
+                hr
+              li
+                hr
+              li 
+                i.ik.ik-user-plus
+                a(href='/catalog/member/create')   Create new member
+              li 
+                i.ik.ik-plus
+                a(href='/catalog/trainer/create')   Create new tranier
+              li 
+                i.ik.ik-corner-right-up
+                a(href='/catalog/plan/create')   Create new Plan
+              //- li 
+              //-   i.ik.ik-file-plus
+              //-   a(href='/catalog/type/create')   Create new Type
+              //- li
+                hr
+              li
+                hr
+              li
+                i.ik.ik-log-out
+                a(href='/users/logout')   Logout
+              
+        div(class='col-sm-9')
+          block content

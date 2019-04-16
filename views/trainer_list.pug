@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+  each trainer in trainer_list
+    li 
+      i.ik.ik-anchor   
+      a(href=trainer.url) #{trainer.name} 
+      | (#{trainer.date_of_reg_yyyy_mm_dd})
+
+  else
+    li 
+      i.ik.ik-anchor   
+      There are no trainers.

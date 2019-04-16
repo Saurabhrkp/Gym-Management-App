@@ -1,0 +1,26 @@
+extends layout
+
+block content
+
+  h1 Type: #{type.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Members
+    
+    dl
+    each member in type_members
+      dt 
+        a(href=member.url) #{member.name}
+      dd #{member.date_of_reg_yyyy_mm_dd}
+
+    else
+      p This type has no members.
+      
+  hr
+  p
+    i.ik.ik-log-out   
+    a(href=type.url+'/delete') Delete type
+  p
+    i.ik.ik-log-in   
+    a(href=type.url+'/update') Update type

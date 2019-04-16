@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{member.name}
+  
+  p #[strong Trainer:] 
+    a(href=member.trainer.url) #{member.trainer.name}
+  p #[strong Member Name:] #{member.name}
+  p #[strong Registration:] #{member.date_of_reg_yyyy_mm_dd}
+  p #[strong Type:] #{member.type.name}
+
+  hr
+  
+  if member_instances.length
+  
+    p #[strong Delete the following plan before attempting to delete this Member.]
+  
+    div(style='margin-left:20px;margin-top:20px')
+    h4 Plan Detail
+    p #[strong Plan:]  #{member.plan.planName}
+    p #[strong Plan Ends on:] #{member.plan_end_on_yyyy_mm_dd}
+    p #[strong Plan Status:] #{member.plan.status}
+
+  else
+    p Do you really want to delete this Member?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#id.form-control(type='hidden',name='id', required='true', value=member._id )
+
+      button.btn.btn-primary(type='submit') Delete

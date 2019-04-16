@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+    div.overlay(class='container justify-content-center' )
+        .row.mt-5
+        .col-md-5.m-auto
+            .card.card-body
+            h1.text-center.mb-3
+                |   Login
+            form(action='/users/login', method='POST')
+                .form-group
+                label(for='email') Email
+                input#email.form-control(type='email', name='email', placeholder='Enter Email')
+                .form-group
+                label(for='password') Password
+                input#password.form-control(type='password', name='password', placeholder='Enter Password')
+                hr
+                button.btn.btn-primary.btn-block(type='submit') Login

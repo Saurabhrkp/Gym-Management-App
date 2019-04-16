@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='planName') Plan Name:
+      input#planName.form-control(type='text', placeholder='Plan Name' name='planName' required='true' value=(undefined===plan ? '' : plan.planName) )
+      label(for='price') Price:
+      input#price.form-control(type='number', placeholder='Price' name='price' required='true' value=(undefined===plan ? '' : plan.price) )
+      label(for='discription') Discription:
+      input#discription.form-control(type='text', placeholder='Discription' name='discription' required='true' value=(undefined===plan ? '' : plan.discription))
+    div.form-group
+      label(for='status') Status:
+      select#status.form-control(type='select', placeholder='Select status' name='status' required='true' )
+        option(value='Active' selected=(undefined===plan || plan.status!='Active' ? false:'selected')) Active
+        option(value='Inactive' selected=(undefined===plan || plan.status!='Inactive' ? false:'selected')) Inactive
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

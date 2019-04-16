@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+  each type in list_types
+    li
+      i.ik.ik-check-square   
+      a(href=type.url) #{type.name}
+
+  else
+    li
+      i.ik.ik-check-square   
+      There are no type.

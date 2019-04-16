@@ -1,0 +1,42 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{plan.planName}
+  //- p= plan.date_of_reg_yyyy_mm_dd
+
+  p #[strong Plan:] #{plan.planName} #{plan._id}
+  
+    p #[strong ID:] 
+      a(href=plan.url) #{plan.planName}
+    
+    p #[strong Price:] #{plan.price}
+
+    p #[strong Status:] 
+      if plan.status=='Active'
+        span.text-success #{plan.status}
+      else if plan.status=='Inactive'
+        span.text-danger #{plan.status}
+  
+  if plan_members.length
+  
+    p #[strong Delete the following members before attempting to delete this plan.]
+  
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Members
+    
+      dl
+      each member in plan_members
+        dt 
+          a(href=member.url) #{member.name}
+        dd #{member.type}
+
+  else
+    p Do you really want to delete this Plan?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#planid.form-control(type='hidden',name='planid', required='true', value=plan._id )
+
+      button.btn.btn-primary(type='submit') Delete

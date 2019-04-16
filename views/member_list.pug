@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+  each member in member_list
+    li 
+      i.ik.ik-user   
+      a(href=member.url) #{member.name} 
+      | (#{member.trainer.name})
+
+  else
+    li
+      i.ik.ik-user 
+       There are no Members.

@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  h1 Delete Type: #{type.name}
+  
+  if type_members.length
+  
+    p #[strong Delete the following members before attempting to delete this type.]
+  
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Members
+    
+      dl
+      each member in type_members
+        dt 
+          a(href=member.url) #{member.Name}
+        dd #{member.date_of_reg_yyyy_mm_dd}
+
+  else
+    p Do you really want to delete this Type?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#id.form-control(type='hidden',name='id', required='true', value=type._id )
+
+      button.btn.btn-primary(type='submit') Delete

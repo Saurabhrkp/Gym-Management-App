@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1 #{title}: #{member.name}
+  
+  p #[strong Trainer:] 
+    a(href=member.trainer.url) #{member.trainer.name}
+  p #[strong Phone Number:] #{member.m_number}
+  p #[strong Birth Date:] #{member.date_of_birth_yyyy_mm_dd}
+  p #[strong Type:]  #{member.type.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+    h2 Plan Detail
+    p #[strong Plan:]  #{member.plan.planName}
+    p #[strong Plan Ends on:] #{member.plan_end_on_yyyy_mm_dd}
+    p #[strong Plan Status:] #{member.plan.status}
+  hr
+  p
+    i.ik.ik-user-minus   
+    a(href=member.url+'/delete') Delete Member
+  p
+    i.ik.ik-user-check   
+    a(href=member.url+'/update') Update Member

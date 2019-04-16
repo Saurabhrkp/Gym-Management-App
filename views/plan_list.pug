@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+  each plan in plan_list
+    li 
+      i.ik.ik-clipboard   
+       a(href=plan.url) #{plan.planName} : #{plan.price} - 
+      if plan.status=='Active'
+        span.text-light #{plan.status}
+      else if plan.status=='Inactive'
+        span.text-danger #{plan.status}
+
+  else
+    li 
+      i.ik.ik-clipboard   There are no member copies in this library

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1 Plan: #{plan.planName}
+  
+  p #[strong ID:] 
+    a(href=plan.url) #{plan._id}
+  p #[strong Price:] #{plan.price}
+
+  p #[strong Status:] 
+    if plan.status=='Active'
+      span.text-success #{plan.status}
+    else if plan.status=='Inactive'
+      span.text-danger #{plan.status}
+    else
+      span.text-warning #{plan.status} 
+
+  hr
+  p
+    i.ik.ik-minus   
+    a(href=plan.url+'/delete') Delete Plan
+  p
+    i.ik.ik-maximize   
+    a(href=plan.url+'/update') Update Plan

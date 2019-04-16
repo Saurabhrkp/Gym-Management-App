@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #[em LocalGym], a very basic Express website.
+
+  h1 Dynamic content
+
+  if error
+    p Error getting dynamic content.
+  else
+    p The Gym has the following record counts:
+
+    ul
+      li
+        i.ik.ik-clipboard  #[strong   Plan:] !{data.plan_count}
+      li
+        i.ik.ik-users  #[strong   Member:] !{data.member_count}
+      li
+        i.ik.ik-anchor  #[strong   Trainer:] !{data.trainer_count}
+      li 
+        i.ik.ik-check-square  #[strong   Type:] !{data.type_count}

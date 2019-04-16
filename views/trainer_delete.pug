@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{trainer.name}
+  p= trainer.date_of_reg_yyyy_mm_dd
+  
+  if trainer_members.length
+  
+    p #[strong Modify the following members before attempting to delete this trainer.]
+  
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Members
+    
+      dl
+      each member in trainer_members
+        dt 
+          a(href=member.url) #{member.name}
+
+  else
+    p Do you really want to delete this Trainer?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#trainerid.form-control(type='hidden',name='trainerid', required='true', value=trainer._id )
+
+      button.btn.btn-primary(type='submit') Delete

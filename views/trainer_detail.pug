@@ -1,0 +1,29 @@
+extends layout
+
+block content
+
+  h1 Trainer: #{trainer.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+  p #[strong Phone Number:] #{trainer.m_number}
+  p #[strong Registeration Date:] #{trainer.date_of_reg_yyyy_mm_dd}
+
+    h2 Members
+    
+    dl
+    each member in trainer_members
+      dt 
+        a(href=member.url) #{member.first_name} #{member.family_name}
+      dd #{member.plan}
+
+    else
+      p This trainer has no members.
+      
+  hr
+  p
+    i.ik.ik-link-2   
+    a(href=trainer.url+'/delete') Delete trainer
+  p
+    i.ik.ik-link   
+    a(href=trainer.url+'/update') Update trainer

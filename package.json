@@ -1,0 +1,40 @@
+{
+  "name": "gym",
+  "productName": "Gym Management App",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron main.js",
+    "build": "electron-packager .  --asar --platform=win32 --arch=ia32  --prune=true --out=release-builds  --version-string.ProductName='Electron Gym Management App' ",
+    "server": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Saurabh Patel",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.2",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "debug": "^4.1.1",
+    "electron": "^3.0.16",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "http-errors": "^1.7.2",
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.19",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7",
+    "pug": "^2.0.3",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "csurf": "^1.9.0",
+    "bcryptjs": "^2.4.3",
+    "express-session": "^1.15.6"
+  },
+  "devDependencies": {
+    "electron-packager": "^13.1.1",
+    "nodemon": "^1.18.10"
+  }
+}
