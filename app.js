@@ -34,8 +34,6 @@ app.use(
 );
 
 app.use(cookieParser());
-var port = 3000;
-app.set('port', port);
 
 // Express session
 app.use(
@@ -59,10 +57,6 @@ app.set('view engine', 'pug');
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/catalog', catalogRouter);
-
-var server = app.listen(port, function() {
-  console.log('Express server listening on port ' + server.address().port);
-});
 
 // error handler
 app.use(function(err, req, res, next) {
